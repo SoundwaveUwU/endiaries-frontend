@@ -1,6 +1,7 @@
 <template>
     <div class="container mx-auto">
-        <Nuxt />
+        <AppHeader></AppHeader>
+        <Nuxt class="relative" />
     </div>
 </template>
 

@@ -23,7 +23,7 @@ export default {
             lang: 'en',
         },
         bodyAttrs: {
-            class: ['bg-gray-300', 'dark:bg-gray-900'],
+            class: ['bg-gray-300', 'dark:bg-gray-900', 'mb-5'],
         },
     },
 
