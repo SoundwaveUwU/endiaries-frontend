@@ -1,0 +1,39 @@
+.toggle-checkbox {
+    transition: right;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+    @apply text-2xl font-semibold;
+}
+
+h2 {
+    @apply text-xl font-semibold;
+}
+
+h3 {
+    @apply text-lg font-semibold;
+}
+
+h5 {
+    @apply text-sm font-semibold;
+}
+
+h6 {
+    @apply text-xs font-semibold;
+}
+
+a {
+    @apply text-gray-700 dark:text-gray-300 hover:underline hover:text-black dark:hover:text-white;
+}
+
+.nuxt-link-active {
+    @apply font-bold;
+}
+
+.nuxt-link-exact-active.button {
+    @apply dark:bg-gray-700 bg-gray-400;
+}
