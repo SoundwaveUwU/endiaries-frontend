@@ -1,19 +1,16 @@
 <template>
     <div
-        class="flex flex-col-reverse space-y-6 md:space-y-0 md:flex-row justify-around md:space-x-6 transition-colors duration-150 ease-in"
-    >
+        class="flex flex-col-reverse space-y-6 md:space-y-0 md:flex-row justify-around md:space-x-6 transition-colors duration-150 ease-in">
         <div class="flex justify-center w-full lg:w-4/6">
             <div
                 class="flex flex-col w-full space-y-2 mb-6"
-                style="max-width: 629px"
-            >
+                style="max-width: 629px">
                 <template v-if="posts !== false">
                     <template v-if="posts.length > 0">
                         <app-post
                             v-for="post in posts"
                             :key="`post_${post.id}`"
-                            :post="post"
-                        />
+                            :post="post" />
                         <div class="flex justify-center">
                             <app-button
                                 :disabled="loading || !loadMore"
@@ -21,33 +18,30 @@
                                 :icon="loading ? 'circle-notch' : ''"
                                 icon-class="fa-spin"
                                 :size="loadMore ? 'large' : 'normal'"
-                                @click="loadBatchOfPosts"
-                            >
+                                @click="loadBatchOfPosts">
                                 <span v-if="loadMore">Load more...</span>
-                                <span v-else
-                                >You have reached the end of your feed.
+                                <span
+                                    v-else>You have reached the end of your feed.
                                     Go touch some grass, please, for
-                                    me.</span
-                                >
+                                    me.</span>
                             </app-button>
                         </div>
                     </template>
                     <template v-else>
                         <div
-                            class="text-3xl space-y-5 flex flex-col justify-center items-center min-h-screen"
-                        >
+                            class="text-3xl space-y-5 flex flex-col justify-center items-center min-h-screen">
                             <div>No posts :(</div>
                         </div>
                     </template>
                 </template>
                 <template v-else>
-                    <app-post-placeholder v-for="id in [1, 2]" :key="id"/>
+                    <app-post-placeholder v-for="id in [1, 2]" :key="id" />
                 </template>
             </div>
         </div>
         <div class="w-full md:w-2/6 relative space-y-5">
             <div v-if="blog !== false">
-                <app-card class="bg-gray-700 p-4 space-y-4">
+                <app-card class="dark:bg-gray-700 bg-white p-4 space-y-4">
                     <div class="flex space-x-4">
                         <div>
                             <responsive-image :image="blog.media[0]" class="w-32 h-32 rounded" />
@@ -62,21 +56,22 @@
                 </app-card>
             </div>
             <div class="sticky space-y-1 top-5">
-                <adsbygoogle/>
-                <adsbygoogle/>
+                <adsbygoogle />
+                <adsbygoogle />
 
-                <AppFooter/>
+                <AppFooter />
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import ResponsiveImage from "~/components/ResponsiveImage";
+import ResponsiveImage from '~/components/ResponsiveImage'
 export default {
-    components: {ResponsiveImage},
+    name: 'BlogSlug',
+    components: { ResponsiveImage },
     auth: false,
-    name: 'BlogSlug',data() {
+    data () {
         return {
             posts: false,
             blog: false,
@@ -84,26 +79,26 @@ export default {
             loadMore: true,
             loading: false,
 
-            newPosts: 0,
+            newPosts: 0
         }
     },
-    computed: {
-        loadMoreClasses() {
-            return {
-                'opacity-50': this.loading,
-                'bg-blue-400 text-white': this.loadMore,
-            }
-        },
-    },
-    async fetch() {
+    async fetch () {
         await Promise.allSettled([
             this.loadBlog(),
             this.loadBatchOfPosts()
         ])
     },
+    computed: {
+        loadMoreClasses () {
+            return {
+                'opacity-50': this.loading,
+                'bg-blue-400 text-white': this.loadMore
+            }
+        }
+    },
     methods: {
-        async loadBatchOfPosts() {
-            if (this.loading) return
+        async loadBatchOfPosts () {
+            if (this.loading) { return }
 
             this.loading = true
 
@@ -116,10 +111,9 @@ export default {
             try {
                 const data = (await this.$axios.$get(url)).data
 
-                if (!data.length) this.loadMore = false
+                if (!data.length) { this.loadMore = false }
 
-                if (this.posts === false) this.posts = data
-                else this.posts.push(...data)
+                if (this.posts === false) { this.posts = data } else { this.posts.push(...data) }
 
                 this.totalLoaded += data.length
             } catch (e) {
@@ -127,17 +121,16 @@ export default {
 
             this.loading = false
         },
-        async loadBlog() {
-            let url = `blog/${this.$route.params.slug}`
+        async loadBlog () {
+            const url = `blog/${this.$route.params.slug}`
 
             try {
                 const data = (await this.$axios.$get(url)).data
 
-                if (this.blog === false) this.blog = data
-                else this.blog.push(...data)
+                if (this.blog === false) { this.blog = data } else { this.blog.push(...data) }
             } catch (e) {
             }
-        },
-    },
+        }
+    }
 }
 </script>

@@ -2,19 +2,23 @@ module.exports = {
     root: true,
     env: {
         browser: true,
-        node: true,
-    },
-    parserOptions: {
-        parser: 'babel-eslint',
+        node: true
     },
     extends: [
-        '@nuxtjs',
-        'prettier',
-        'prettier/vue',
-        'plugin:prettier/recommended',
-        'plugin:nuxt/recommended',
+        '@nuxtjs'
+    // 'prettier',
+    // 'prettier/vue',
+    // 'plugin:prettier/recommended',
+    // 'plugin:nuxt/recommended',
     ],
-    plugins: ['prettier'],
+    // plugins: ['prettier'],
     // add your custom rules here
-    rules: {},
+    rules: {
+        indent: ['error', 4],
+        'vue/html-indent': ['error', 4],
+        'vue/html-closing-bracket-newline': ['error', {
+            singleline: 'never',
+            multiline: 'never'
+        }]
+    }
 }

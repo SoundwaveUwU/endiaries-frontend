@@ -27,7 +27,7 @@ h6 {
 }
 
 a {
-    @apply text-gray-700 dark:text-gray-300 hover:underline hover:text-black dark:hover:text-white;
+    @apply text-gray-900 dark:text-gray-100 hover:underline hover:text-black dark:hover:text-white;
 }
 
 .nuxt-link-active {
