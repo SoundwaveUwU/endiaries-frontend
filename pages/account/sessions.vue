@@ -7,16 +7,16 @@
                 <thead class="dark:bg-gray-700 bg-gray-100">
                     <tr>
                         <th class="px-3 py-2">
-                            {{ $('Device') }} / {{ $('OS') }} / {{ $('Browser') }}
+                            {{ $t('Device') }} / {{ $t('OS') }} / {{ $t('Browser') }}
                         </th>
                         <th class="px-3 py-2">
-                            {{ $('Location') }}
+                            {{ $t('Location') }}
                         </th>
                         <th class="px-3 py-2">
-                            {{ $('IP') }}
+                            {{ $t('IP') }}
                         </th>
                         <th class="px-3 py-2">
-                            {{ $('Logged in at') }}
+                            {{ $t('Logged in at') }}
                         </th>
                         <th class="px-3 py-2" />
                     </tr>
@@ -42,7 +42,7 @@
                         </td>
                         <td class="px-3 py-2">
                             <app-button
-                                :title="$('Log out')"
+                                :title="$t('Log out')"
                                 class="dark:text-gray-300 dark:hover:text-white text-gray-700 hover:text-black">
                                 <span class="fa fa-sign-out-alt" />
                             </app-button>
@@ -66,7 +66,7 @@
                 class="dark:bg-gray-700 bg-gray-300"
                 size="large"
                 icon="sign-out-alt">
-                Logout everywhere else
+                {{ $t('Logout everywhere else') }}
             </app-button>
         </div>
     </div>

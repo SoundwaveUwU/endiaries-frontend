@@ -88,8 +88,10 @@ export default {
             return this.blogs.filter(blog => blog.id === post.blog)[0]
         },
         finalParentPosts (post) {
+            if (post.parent_chain.length === 0) { return [] }
+
             return this.parentPosts.filter((parentPost) => {
-                return parentPost.parent_chain.includes(post.id)
+                return post.parent_chain.includes(parentPost.id)
             })
         }
     }

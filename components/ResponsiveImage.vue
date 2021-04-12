@@ -64,7 +64,6 @@ export default {
             return this.image?.width ?? this.width
         },
         finalHeight () {
-            console.log(this.image)
             return this.image?.height ?? this.height
         },
         paddingBottom () {

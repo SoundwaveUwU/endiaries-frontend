@@ -120,7 +120,6 @@
             <!-- sticky  -->
             <div class="sticky space-y-1 top-5">
                 <adsbygoogle />
-                <adsbygoogle />
 
                 <AppFooter />
             </div>

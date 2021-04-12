@@ -6,6 +6,6 @@
 export default {
     name: 'IndexVue',
     layout: 'account',
-    middleware: 'auth',
+    middleware: 'auth'
 }
 </script>
