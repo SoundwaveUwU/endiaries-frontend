@@ -23,6 +23,6 @@
         "@nuxtjs/google-analytics": "^2.4.0",
         "@nuxtjs/tailwindcss": "^4.0.1",
         "eslint": "^7.22.0",
-        "prettier": "^2.2.1"
+        "prettier": "^2.3.2"
     }
 }
